@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="RecipeFetcher.Tests/RecipeFetcher.Tests.csproj" />
   <Project Path="RecipeFetcher/RecipeFetcher.csproj" />
 </Solution>
