@@ -1,0 +1,32 @@
+{
+  "residents": [
+    {
+      "id": "alex",
+      "name": "Alex",
+      "food_preferences": [
+        "Italian",
+        "weeknight-friendly"
+      ],
+      "max_cook_time_minutes": 30,
+      "dietary_restrictions": [
+        "vegetarian"
+      ],
+      "skill_level": "intermediate",
+      "budget": "moderate"
+    },
+    {
+      "id": "jordan",
+      "name": "Jordan",
+      "food_preferences": [
+        "spicy",
+        "one-pot meals"
+      ],
+      "max_cook_time_minutes": 20,
+      "dietary_restrictions": [
+        "vegetarian"
+      ],
+      "skill_level": "beginner",
+      "budget": "low-cost"
+    }
+  ]
+}

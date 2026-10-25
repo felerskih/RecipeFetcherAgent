@@ -2,7 +2,12 @@
 using Microsoft.Extensions.AI;
 using RecipeRecommender;
 
-var def = AgentDefinitionLoader.Load("Agents/recipe-recommender.agent.md");
+var settings = AppSettings.Load(Path.Combine(AppContext.BaseDirectory, "config.json"));
+var agentDefinitionPath = Path.Combine(
+    AppContext.BaseDirectory,
+    "Agents",
+    "recipe-recommender.agent.md");
+var def = AgentDefinitionLoader.Load(agentDefinitionPath);
 
 var tavilyServiceClient = new TavilyServiceClient();
 var toolRegistry = ToolRegistry.Build(tavilyServiceClient);
@@ -15,5 +20,5 @@ var tools = def.Tools
 var agentFactory = AgentFactoryResolver.Resolve(def.Provider);
 AIAgent agent = agentFactory.CreateAgent(def, tools);
 
-var result = await agent.RunAsync("household_size: 4, food_preferences: Italian, weeknight-friendly; max_cook_time_minutes: 30; dietary_restrictions: vegetarian");
+var result = await agent.RunAsync(settings.BuildAgentInput());
 Console.WriteLine(result.Text);
